@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7fd">
+  <title>Каспи — кабинет управляющей компании</title>
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><img src="/kaspi-mark.png" alt="" class="brand-mark"><div><strong>каспи</strong><small>Кабинет УК</small></div></div>
+      <div class="side-label">УПРАВЛЕНИЕ КОМПЛЕКСОМ</div>
+      <nav class="app-nav" aria-label="Разделы">
+        <button class="nav-item active" data-page="overview"><span class="nav-icon">◫</span>Обзор</button>
+        <button class="nav-item" data-page="customers"><span class="nav-icon">◎</span>Клиенты</button>
+        <button class="nav-item" data-page="audiences"><span class="nav-icon">▦</span>Аудитории</button>
+      </nav>
+      <div class="sidebar-bottom"><span class="environment-dot"></span><div><strong>Демо-комплекс</strong><small>Синтетические данные</small></div></div>
+    </aside>
+    <div class="main-shell">
+      <header class="topbar"><div class="topbar-title">Кабинет управляющей компании <span> / Весь комплекс</span></div><a class="portal-switch" href="/partner">Портал арендатора</a></header>
+      <main>
+        <section class="page active" id="page-overview">
+          <div class="page-heading overview-heading"><div><div class="eyebrow">ВЕСЬ КОМПЛЕКС В ОДНОМ МЕСТЕ</div><h1>Клиенты всего комплекса.<br><span>Аудитория для арендаторов.</span></h1><p class="lead">Арендаторы передают события, Каспи объединяет историю клиента, а вы находите аудиторию для соседнего проекта.</p></div><button class="outline-button" id="refresh-overview">Обновить</button></div>
+          <div class="hero-grid"><div class="hero-panel"><div class="hero-copy"><span class="hero-label">ОБЩАЯ КЛИЕНТСКАЯ БАЗА</span><div class="hero-number" id="m-profiles">—</div><p>уникальных профилей</p><button class="hero-button" data-goto="customers">Посмотреть клиентов</button></div><img class="hero-mark" src="/kaspi-mark.png" alt=""></div><div class="hero-side"><div class="side-metric"><span>Событий от арендаторов</span><strong id="m-events">—</strong></div><div class="side-metric"><span>Первые покупки<br>после кампаний*</span><strong id="m-first">—</strong></div><div class="side-metric"><span>Созданные кампании</span><strong id="m-campaigns">—</strong></div></div></div>
+          <div class="section-head"><div><div class="eyebrow">ЧТО ДЕЛАТЬ ДАЛЬШЕ</div><h2>Работа с комплексом</h2></div></div>
+          <div class="overview-grid"><div class="surface"><div class="surface-head"><div><span class="surface-kicker">ДАННЫЕ</span><h3>Подключено проектов: <span id="m-tenants">—</span></h3></div></div><div id="ecosystem" class="tenant-list"></div><div class="surface-note">Каждый арендатор загружает данные в своём портале. Здесь видна общая картина.</div></div><div class="surface"><div class="surface-head"><div><span class="surface-kicker">ДЕЙСТВИЕ</span><h3>Пригласить в новый проект</h3></div></div><p class="surface-description">Найдите людей, которые уже были в одном месте комплекса, но ещё не покупали в другом.</p><button class="primary-button overview-cta" data-goto="audiences">Найти аудиторию</button><div class="campaign-compact"><span>Последняя кампания</span><div id="overview-campaigns" class="campaign-list"></div></div></div></div>
+          <p class="data-caption">* Покупки в заданном окне кампании. Это показатель результата, а не доказательство причины. Суммы — в рублях.</p>
+        </section>
+        <section class="page" id="page-customers"><div class="page-heading"><div><div class="eyebrow">ОБЩАЯ ИСТОРИЯ</div><h1>Клиенты</h1><p class="lead">Один профиль показывает события, полученные от разных арендаторов.</p></div><span class="heading-count" id="customers-count">—</span></div><div class="workspace-bar"><label class="search-field"><span aria-hidden="true">⌕</span><input id="customer-search" type="search" placeholder="Имя, телефон или e-mail" aria-label="Поиск клиентов"></label><span>Откройте профиль, чтобы увидеть его историю.</span></div><div class="data-table"><table><thead><tr><th>Клиент</th><th>Контакт</th><th>Проекты</th><th>События</th><th>Сумма покупок</th><th></th></tr></thead><tbody id="customers-table"></tbody></table></div></section>
+        <section class="page" id="page-audiences"><div class="page-heading"><div><div class="eyebrow">ПЕРЕХОД МЕЖДУ ПРОЕКТАМИ</div><h1>Аудитории</h1><p class="lead">Выберите проект, где человек уже был, и проект, куда его можно пригласить.</p></div></div><div class="builder"><div class="builder-heading"><div class="builder-badge">01</div><div><h2>Кого пригласить?</h2><p>Найдём клиентов с подтверждённым действием и согласием на коммуникацию. Если покупка в целевом проекте уже есть в базе, клиент не попадёт в выборку.</p></div></div><div class="builder-controls"><label>Клиент уже был здесь<select id="source-select"></select></label><label>Пригласить сюда<select id="target-select"></select></label><button class="primary-button" id="find-segment">Показать клиентов</button></div><div id="segment-result" class="segment-result hidden"></div></div><div class="section-head lower-head"><div><div class="eyebrow">СОХРАНЁННЫЕ ВЫБОРКИ</div><h2>Кампании</h2></div><span>Контакты выгружаются в CSV для вашей рассылки</span></div><div class="data-table"><table><thead><tr><th>Кампания</th><th>Маршрут</th><th>Клиенты</th><th>Первые покупки</th><th>Дата</th><th></th></tr></thead><tbody id="campaigns-table"></tbody></table></div></section>
+      </main>
+      <footer class="app-footer"><span>КАСПИ · ДЕМО КАБИНЕТА УК</span><span>Данные синтетические</span></footer>
+    </div>
+  </div>
+  <dialog id="detail-dialog"><div class="dialog-head"><div><div class="eyebrow">ИСТОРИЯ КЛИЕНТА</div><h2 id="detail-title"></h2></div><button class="close-btn" id="close-dialog" aria-label="Закрыть">×</button></div><div id="detail-body"></div></dialog>
+  <div id="toast" role="status"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

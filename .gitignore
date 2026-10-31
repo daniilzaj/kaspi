@@ -1,0 +1,6 @@
+/data/
+/.playwright-mcp/
+.DS_Store
+*.test
+/kaspi
+/presentation/

@@ -1,0 +1,2 @@
+customer_id,event_id,event_type,occurred_at,name,phone,email,amount,consent,related_event_id
+cafe-live-elena,live-cafe-elena-20261031,purchase,2026-10-31,Елена Соколова,+7 913 444-55-66,elena@example.test,940,true,

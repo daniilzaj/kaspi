@@ -1,0 +1,3 @@
+customer_id,event_id,event_type,occurred_at,name,phone,email,amount,consent,related_event_id
+crm-001,visit-001,visit,2026-10-30,Иван Петров,+7 913 123-45-67,ivan@example.com,0,true,
+crm-001,purchase-001,purchase,2026-10-30,Иван Петров,+7 913 123-45-67,ivan@example.com,1200,true,
